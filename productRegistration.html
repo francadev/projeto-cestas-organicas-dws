@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hortalize - Home</title>
+    <title>Hortalize - Produtos</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-<body onload="loadIndexPage()">
+<body onload="loadProductPage()">
     <div class="container">
         <div id="content">
             <header>
@@ -26,16 +26,35 @@
                 </nav>
             </header>
 
-            <nav class="menu-secundario">
-                <ul>
-                    <li><a href="#">Legumes</a></li>
-                    <li><a href="#">Verduras</a></li>
-                    <li><a href="#">Frutas</a></li>
-                </ul>
-            </nav>
+            <div class="divider"></div>
 
-            <section id="products">
-            </section>
+            <div class="contentFormAndImg">
+                <section class="sectionCadastroProdutos">
+                    <h1>Cadastrar produtos</h1>
+
+                    <form action="" id="formCadastroProdutos">
+                        <label for="productName">Nome do produto:</label>
+                        <input type="text" id="productName" name="productName" required>
+
+                        <label for="productDescription">Descrição do produto:</label>
+                        <input type="text" id="productDescription" name="productDescription" required>
+
+                        <label for="productQuantity">Quantidade do produto:</label>
+                        <input type="number" id="productQuantity" name="productQuantity" value="1" min="1">
+
+                        <label for="productPhoto">Foto do produto:</label>
+                        <input type="file" name="productPhoto" id="productPhoto" accept="image/*">
+                        
+                        <div class="buttonFormCadastro">
+                            <button type="submit" form="formCadastroProdutos">Cadastrar</button>
+                        </div>
+                    </form>
+                </section>
+
+                <div class="divImagemCadastroProdutos">
+                    <img src="./assets/images/imgCadastroProdutos.png" alt="">
+                </div>
+            </div>
         </div>
 
         <footer>
