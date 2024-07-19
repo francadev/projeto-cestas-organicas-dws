@@ -175,7 +175,7 @@ footer ul {
     margin-bottom: 2px;
 }
 
-#formCadastroProdutos input{
+#formCadastroProdutos input, select{
     display: block;
     width: 100%;
     padding: 6px 12px;
