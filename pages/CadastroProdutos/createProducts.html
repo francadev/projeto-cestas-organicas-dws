@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hortalize - Produtos</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="../../css/style.css" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -13,7 +13,6 @@
     <div class="container">
         <div id="header"></div>
         <div id="content">
-            <div class="divider"></div>
             <div class="contentFormAndImg">
                 <section class="sectionCadastroProdutos">
                     <h1>Cadastrar produtos</h1>
@@ -45,7 +44,7 @@
                 </section>
                 
                 <div class="divImagemCadastroProdutos">
-                    <img src="./assets/images/imgCadastroProdutos.png" alt="">
+                    <img src="../../assets/images/fundoCadastro.png" alt="">
                 </div>
             </div>
         </div>
@@ -55,10 +54,10 @@
     <script type="module" src="./js/createProducts.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            fetch('header.html')
+            fetch('/Header/header.html')
                 .then(response => response.text())
                 .then(data => document.getElementById('header').innerHTML = data);
-            fetch('footer.html')
+            fetch('/Footer/footer.html')
                 .then(response => response.text())
                 .then(data => document.getElementById('footer').innerHTML = data);
         });
