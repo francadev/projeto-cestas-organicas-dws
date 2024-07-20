@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Hortalize - Login Usuário</title>
+</head>
+<body>
+    <div class="container">
+        <div id="header"></div>
+        <main id="main-content">
+            <section class="formulario">   
+                <h1>Login</h1>
+                <form id="form-login">
+                    <label for="email">Endereço de email</label>
+                    <input type="email" id="email">
+                    
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha">
+                    
+                    <button type="submit">Login</button>
+    
+                    <p>Não possui conta? Faça o <a href="../CadastroUsuario/index.html" class="path-cadastro">Cadastro</a></p>
+                </form>
+            </section>
+            <section class="imagem">
+                <img src="../../assets/images/fundoCadastro.png" alt="Imagem de fundo para login">
+            </section>
+        </main>
+        <div id="footer"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('../../Header/header.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('header').innerHTML = data);
+            fetch('../../Footer/footer.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('footer').innerHTML = data);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hortalize - Produtos</title>
+    <link rel="stylesheet" href="../../css/style.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="header"></div>
+        <div id="content">
+            <div class="contentFormAndImg">
+                <section class="sectionCadastroProdutos">
+                    <h1>Cadastrar produtos</h1>
+
+                    <form action="" id="formCadastroProdutos">
+                        <label for="productName">Nome do produto:</label>
+                        <input type="text" id="productName" name="productName" required>
+
+                        <label for="productDescription">Descrição do produto:</label>
+                        <input type="text" id="productDescription" name="productDescription" required>
+                        
+                        <label for="productQuantity">Quantidade do produto:</label>
+                        <input type="number" id="productQuantity" name="productQuantity" value="1" min="1">
+                        
+                        <label for="productCategory">Categoria do produto:</label>
+                        <select name="productCategory" id="productCategory">
+                            <option value="legume">Legume</option>
+                            <option value="verdura">Verdura</option>
+                            <option value="fruta">Fruta</option>
+                        </select>
+                        
+                        <label for="productPhoto">Foto do produto:</label>
+                        <input type="file" name="productPhoto" id="productPhoto" accept="image/*">
+
+                        <div class="buttonFormCadastro">
+                            <button type="submit" form="formCadastroProdutos">Cadastrar</button>
+                        </div>
+                    </form>
+                </section>
+                
+                <div class="divImagemCadastroProdutos">
+                    <img src="../../assets/images/fundoCadastro.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+    <script type="module" src="./js/databaseConnection.js"></script>
+    <script type="module" src="./js/createProducts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('/Header/header.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('header').innerHTML = data);
+            fetch('/Footer/footer.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('footer').innerHTML = data);
+        });
+    </script>
+</body>
+</html>
