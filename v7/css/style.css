@@ -1,0 +1,192 @@
+* {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#content {
+    flex: 1;
+}
+
+.menu-principal {
+    margin: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divider{
+    border-bottom: 2px solid #3A9955;
+}
+
+.logoImg{
+    margin-left: 12px;
+}
+
+#searchInput{
+    width: 300px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    border: 1px solid #848484
+}
+
+.menu-principal li {
+    margin: 0 20px;
+}
+
+.menu-secundario {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.menu-secundario ul {
+    background-color: #3A9955;
+    width: 100%;
+    padding: 10px;
+}
+
+.menu-secundario li {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid #ccc;
+    padding: 0 50px;
+}
+
+.menu-secundario li:last-child {
+    border-right: none;
+}
+
+.menu-secundario a {
+    color: white;
+    font-weight: 700;
+}
+
+
+
+#products {
+    flex: 1;
+    margin: 48px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+#products h3 {
+    margin: 0;
+}
+
+#products p {
+    margin: 0px;
+}
+
+
+.card-product {
+    width: 140px;
+    height: auto;
+    font-size: 12px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-img {
+    width: 50px;
+    height: 50px;
+    margin: 30px auto;
+}
+
+.card-product button {
+    width: 100%;
+    padding: 10px;
+    margin-top: auto;
+    background-color: #3A9955;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contentFormAndImg{
+    display: flex;
+    margin: 36px 24px;
+}
+
+.sectionCadastroProdutos{
+    padding: 24px;
+    width: 30%;
+}
+
+.divImagemCadastroProdutos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    width: 70%;
+}
+
+.divImagemCadastroProdutos img{
+    width: 50%;
+}
+
+#formCadastroProdutos{
+    padding: 36px;
+}
+
+#formCadastroProdutos label{
+    display: block;
+    margin-bottom: 2px;
+}
+
+#formCadastroProdutos input, select{
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid #848484;
+    margin-bottom: 24px;
+}
+
+#formCadastroProdutos #productQuantity{
+    width: 60px
+}
+
+#formCadastroProdutos button{
+    padding: 10px;
+    margin-top: auto;
+    background-color: #3A9955;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    width: 40%;
+}
+
+.buttonFormCadastro{
+    display: flex;
+    justify-content: end;
+}

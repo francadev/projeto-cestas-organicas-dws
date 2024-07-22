@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Hortalize - Login Usuário</title>
+</head>
+
+<style>
+    * {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#main-content {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 20px;
+    flex-wrap: wrap; 
+}
+
+.formulario {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 20px;
+}
+
+.formulario h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario label {
+    margin-top: 15px;
+}
+
+.formulario input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1em;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.formulario p {
+    margin-top: 20px;
+}
+
+.path-cadastro {
+    color: #4CAF50;
+    cursor: pointer;
+}
+
+.path-cadastro:hover {
+    color: #45a049;
+}
+
+.imagem {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 50%;
+}
+
+.imagem img {
+    max-width: 100%;
+    height: auto;
+}
+
+#footer {
+    margin-top: auto;
+}
+
+
+@media (max-width: 970px) {
+    #main-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .formulario {
+        max-width: 100%;
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+
+    .imagem {
+        max-width: 100%;
+    }
+
+    .imagem img {
+        width: 100%;
+    }
+}
+    
+</style>
+
+<body>
+    <div class="container">
+        <div id="header"></div>
+        <main id="main-content">
+            <section class="formulario">   
+                <h1>Login</h1>
+                <form id="form-login">
+                    <label for="email">Endereço de email</label>
+                    <input type="email" id="email">
+                    
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha">
+                    
+                    <button type="submit">Login</button>
+    
+                    <p>Não possui conta? Faça o <a href="./cadastroUsuario.html" class="path-cadastro">Cadastro</a></p>
+                </form>
+            </section>
+            <section class="imagem">
+                <img src="./assets/images/fundoCadastro.png" alt="Imagem de fundo para login">
+            </section>
+        </main>
+        <div id="footer"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('./header.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('header').innerHTML = data);
+            fetch('./footer.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('footer').innerHTML = data);
+        });
+    </script>
+</body>
+</html>
