@@ -3,14 +3,15 @@ import { db } from './env';
 import { collection, addDoc, query, where, getDocs} from 'firebase/firestore';
 import { toast } from 'react-toastify';
 
-export const storeProduct = async (name, description, quantity, category, photo) => {
+export const storeProduct = async (name, description, quantity, category, photo, prize) => {
     try {
         const docRef = await addDoc(collection(db, 'products'), {
             name,
             description,
             quantity,
             category,
-            photo
+            photo,
+            prize
         });
         console.log('Produto armazenado com sucesso, ID do documento:', docRef.id);
         toast.success("Produto armazenado com sucesso");
