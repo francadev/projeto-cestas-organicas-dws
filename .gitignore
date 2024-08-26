@@ -20,8 +20,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/src/scripts/env.js
-
 .firebase
 .vercel
-src/scripts/env.js
