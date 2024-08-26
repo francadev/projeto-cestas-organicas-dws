@@ -51,17 +51,14 @@ export const register = (email, senha, endereco, foto, nome) => {
     }
   }
 
-  export const signoutUser =  () => {
-    signOut(auth)
-    .then(() => {
-      console.log("Usuário deslogado com sucesso");
-      toast.success("Usuário deslogado com sucesso!");
-    })
-    .catch((error) => {
-      console.log("Erro ao deslogar o usuário:", error);
-      toast.error("Erro ao deslogar o usuário: " + error.message);
-    });
-
+export const signoutUser = async (onSuccess) => {
+  try {
+    await signOut(auth);
+    console.log("Usuário deslogado com sucesso");
+    toast.success("Usuário deslogado com sucesso!");
+    if (onSuccess) onSuccess(); // Chame a função de redirecionamento se fornecida
+  } catch (error) {
+    console.log("Erro ao deslogar o usuário:", error);
+    toast.error("Erro ao deslogar o usuário: " + error.message);
   }
-
-
+};

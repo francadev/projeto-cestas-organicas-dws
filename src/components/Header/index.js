@@ -151,7 +151,9 @@ const Header = () => {
   return (
     <HeaderContainer>
       <TopBar>
-        <img src={logo} alt="Logo" className="logo" />
+        <NavLink to="/">
+          <img src={logo} alt="Logo" className="logo" />
+        </NavLink>
         <BuscaContainer>
           <input 
           type="search" 
@@ -163,7 +165,9 @@ const Header = () => {
         </BuscaContainer>
         <LinksContainer>
           <NavLink to={isLoggedIn ? '/cadastro-produtos' : '/login'}>Cadastrar um produto</NavLink>
-          <NavLink to='/cadastro-usuarios'>Entre ou cadastre-se</NavLink>
+          {!isLoggedIn && (
+            <NavLink to='/login'>Entre ou cadastre-se</NavLink>
+          )}
           <NavLink to={isLoggedIn ? '/carrinho' : '/login'} className="carrinho-link">
             <span>Meu carrinho</span>
           </NavLink>
@@ -172,13 +176,13 @@ const Header = () => {
 
       <NavBar>
       <Divisor/>
+        <NavLink to='/' className="link">Todos os produtos</NavLink>
+        <Divisor/>
         <NavLink to='/legume' className="link">Legumes</NavLink>
         <Divisor/>
         <NavLink to='/verdura' className="link">Verduras</NavLink>
         <Divisor/>
         <NavLink to='/fruta' className="link">Frutas</NavLink>
-        <Divisor/>
-        <NavLink to='/' className="link">Todas</NavLink>
         <Divisor/>
       </NavBar>
 

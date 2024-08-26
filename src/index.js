@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
@@ -11,11 +10,13 @@ import LoginUsuarios from './pages/LoginUsuarios';
 import Home from './pages/Home';
 import CadastroProdutos from './pages/CadastroProdutos';
 import Carrinho from './pages/Carrinho';
-
-
+import QuemSomos from './pages/QuemSomos';
+import { CartProvider } from './contexts/CartContext';
+import CarrinhoProdutos from './components/CarrinhoProdutos';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const GlobalStyle = createGlobalStyle`
-
 * {
     font-family: "Montserrat", sans-serif;
     margin: 0;
@@ -34,7 +35,6 @@ a {
     color: black;
     text-decoration: none;
 }
-
 `;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -42,25 +42,24 @@ root.render(
   <React.StrictMode>
     <GlobalStyle />
     <BrowserRouter>
-    
-    <Header />
-    <Routes>
-        <Route path='/' element ={<Home />} />
-        <Route path='/cadastro-usuarios' element ={<CadastroUsuarios />} />
-        <Route path='/login' element ={<LoginUsuarios />} />
-        <Route path='/cadastro-produtos' element ={<CadastroProdutos />} />
-        <Route path='/carrinho' element ={<Carrinho />}/>
-        <Route path='/:category' element={<Home />} />
-        <Route path='/search/:searchTerm' element={<Home />} />
-    </Routes>
-    <Footer />
-    
+      <CartProvider>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/cadastro-usuarios' element={<CadastroUsuarios />} />
+          <Route path='/login' element={<LoginUsuarios />} />
+          <Route path='/cadastro-produtos' element={<CadastroProdutos />} />
+          <Route path='/carrinho' element={<Carrinho />} />
+          <Route path='/:category' element={<Home />} />
+          <Route path='/search/:searchTerm' element={<Home />} />
+          <Route path="/carrinho-produtos" element={<CarrinhoProdutos />} />
+          <Route path="/quem-somos" element={<QuemSomos />} />
+        </Routes>
+        <Footer />
+        <ToastContainer />
+      </CartProvider>
     </BrowserRouter>
-    
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

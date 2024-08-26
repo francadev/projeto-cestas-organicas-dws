@@ -1,8 +1,8 @@
-// src/components/Footer.js
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../../images/logo.png';
 import contato from '../../images/contato.png';
+import { Link } from 'react-router-dom';
 
 const FooterContainer = styled.footer`
   background-color: #fdfffd;
@@ -63,14 +63,24 @@ const ContatoText = styled.span`
 
 `;
 
-const ContatoDetails = styled.div`
-    display: flex;
-    margin-top: 10px;
-    font: 500 16px Inter, sans-serif;
-    color: gray;
-    padding: 0 11px;
+const ContatoDetails = styled.a`
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font: 500 16px Inter, sans-serif;
+  color: gray;
+  padding: 0 11px;
+  text-decoration: none; /* Remove o sublinhado padrão */
+  cursor: pointer;
 
-  `;
+  &:hover {
+    opacity: 0.8;
+  }
+
+  img {
+    margin-right: 8px;
+  }
+`;
 
   const Logo = styled.img`
     aspect-ratio: 2.13;
@@ -95,12 +105,16 @@ const ContatoDetails = styled.div`
   
   `;
 
-  const InfoSubtitle = styled.p`
-    color: gray;
-    margin-top: 10px;
-    font: 500 16px Inter, sans-serif;
+  const InfoSubtitle = styled(Link)`
+  color: gray;
+  margin-top: 10px;
+  font: 500 16px Inter, sans-serif;
+  text-decoration: none; /* Remove o sublinhado padrão */
   
-  `;
+  &:hover {
+    text-decoration: underline; /* Adiciona sublinhado no hover para melhor visualização */
+  }
+`;
 
 const Creditos = styled.p`
     color: gray;
@@ -110,13 +124,15 @@ const Creditos = styled.p`
 
 
 const Footer = () => {
+  const email = "floralize@email.com";
+
   return (
     <FooterContainer>
       <Divisor/>
       <FooterContent>
         <ContatoInfo>
           <ContatoTitle>Atendimento</ContatoTitle>
-          <ContatoDetails>
+          <ContatoDetails href={`mailto:${email}`}>
             <img src={contato} alt="Contato" />
             <ContatoText>Contato</ContatoText>
           </ContatoDetails>
@@ -125,7 +141,7 @@ const Footer = () => {
 
         <Info>
           <InfoTitle>Informações</InfoTitle>
-          <InfoSubtitle>Quem somos</InfoSubtitle>
+          <InfoSubtitle to="/quem-somos">Quem somos</InfoSubtitle>
           <Creditos>Desenvolvido por: Luiza Cuelbas e Rafael França</Creditos>
         </Info>
       </FooterContent>

@@ -117,8 +117,6 @@ const Login = () => {
     event.preventDefault();
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
-
-    // Chama a função de registro
     autenticateUser(email, senha);
   };
 

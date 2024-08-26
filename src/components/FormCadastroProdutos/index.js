@@ -95,7 +95,6 @@ const FormCadastroProdutos = () => {
     const prize = document.getElementById('prize').value;
     const productPhoto = document.getElementById('productPhoto').value;
 
-    // Chama a função de registro
     storeProduct(name, description, quantity, category, productPhoto, prize);
   };
 

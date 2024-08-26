@@ -120,7 +120,6 @@ const FormCadastroUsuarios = () => {
     const foto = document.getElementById('foto').value;
     const nome = document.getElementById('nome').value;
 
-    // Chama a função de registro
     register(email, senha, endereco, foto, nome);
   };
 

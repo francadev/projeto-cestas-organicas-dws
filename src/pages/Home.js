@@ -1,10 +1,10 @@
-
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../scripts/env';
 import { useParams } from 'react-router-dom';
 import { getProductsCategory, getProductsName } from '../scripts/ProductsProvider';
+import { useCart } from '../contexts/CartContext';
 
 const Container = styled.div`
   display: flex;
@@ -12,12 +12,9 @@ const Container = styled.div`
   min-height: 100vh;
 `;
 
-const Content = styled.div`
-  
-`;
+const Content = styled.div``;
 
 const ProductsSection = styled.section`
-  
   margin: 48px 12px;
   display: flex;
   flex-wrap: wrap;
@@ -43,16 +40,16 @@ const ProductImage = styled.img`
 `;
 
 const Button = styled.button`
-    width: 100%;
-    padding: 10px;
-    margin-top: auto;
-    background-color: #3A9955;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  margin-top: auto;
+  background-color: #3A9955;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 
-    &:hover {
+  &:hover {
     background-color: #45a049;
   }
 `;
@@ -60,6 +57,7 @@ const Button = styled.button`
 function Home() {
   const [products, setProducts] = useState([]);
   const { category, searchTerm } = useParams();
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -88,17 +86,26 @@ function Home() {
     fetchProducts();
   }, [category, searchTerm]);
 
-  return (
+  const handleAddProduct = (product) => {
+    addToCart(product);
+  };
 
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+  };
+
+  return (
     <Container>
       <Content>
         <ProductsSection>
-          {products.map(product => (
+          {products.filter(product => product.quantity > 0).map(product => (
             <ProductCard key={product.id}>
               <h3>{product.name}</h3>
               <p>{product.description}</p>
+              <p>Quantidade: {product.quantity}</p>
               <ProductImage src={product.photo} alt={product.name} />
-              <Button>Adicionar</Button>
+              <p>Preço: {product.value ? formatCurrency(product.value) : 'R$ 0,00'}</p>
+              <Button onClick={() => handleAddProduct(product)}>Adicionar</Button>
             </ProductCard>
           ))}
         </ProductsSection>
@@ -108,5 +115,3 @@ function Home() {
 }
 
 export default Home;
-
-

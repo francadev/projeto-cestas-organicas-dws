@@ -1,6 +1,6 @@
 
 import { db } from './env';
-import { collection, addDoc, query, where, getDocs} from 'firebase/firestore';
+import { collection, addDoc, query, where, getDocs,  doc, getDoc, updateDoc} from 'firebase/firestore';
 import { toast } from 'react-toastify';
 
 export const storeProduct = async (name, description, quantity, category, photo, prize) => {
@@ -49,3 +49,27 @@ export const getProductsName = async (name) => {
     }
 };
 
+export const updateProductQuantity = async (productId, decrementAmount) => {
+    try {
+        const productRef = doc(db, 'products', productId);
+        const productDoc = await getDoc(productRef);
+
+        if (productDoc.exists()) {
+            const currentQuantity = productDoc.data().quantity;
+            const newQuantity = currentQuantity - decrementAmount;
+
+            if (newQuantity < 0) {
+                throw new Error('Quantidade insuficiente em estoque.');
+            }
+
+            await updateDoc(productRef, { quantity: newQuantity });
+            
+        } else {
+            throw new Error('Produto não encontrado.');
+        }
+    } catch (error) {
+        console.error('Erro ao atualizar a quantidade do produto:', error);
+        toast.error("Erro ao atualizar a quantidade do produto: " + error.message);
+        throw error;
+    }
+};
