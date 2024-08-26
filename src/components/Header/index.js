@@ -133,7 +133,6 @@ const Header = () => {
       }
     });
 
-    // Cleanup subscription on unmount
     return () => unsubscribe();
   }, []);
 
@@ -142,7 +141,6 @@ const Header = () => {
   };
 
   useEffect(() => {
-    // Redireciona para a página de pesquisa quando o termo de busca mudar
     if (searchTerm) {
       navigate(`/search/${searchTerm}`);
     }

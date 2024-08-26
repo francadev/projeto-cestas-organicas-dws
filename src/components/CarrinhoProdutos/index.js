@@ -130,7 +130,7 @@ const formatCurrency = (value) => {
 const CarrinhoProdutos = () => {
   const { cartItems, removeFromCart, updateQuantity, getTotalPrice, clearCart } = useCart();
   const [isCheckout, setIsCheckout] = useState(false);
-  const navigate = useNavigate(); // Crie uma instância do useNavigate
+  const navigate = useNavigate();
 
   const handleDelete = (id) => {
     removeFromCart(id);
@@ -159,7 +159,7 @@ const CarrinhoProdutos = () => {
 
   const handleSignout = () => {
     signoutUser(() => {
-      navigate('/'); // Redirecione para a raiz após o logout
+      navigate('/'); 
     });
   };
 

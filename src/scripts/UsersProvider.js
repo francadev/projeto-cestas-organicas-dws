@@ -56,7 +56,7 @@ export const signoutUser = async (onSuccess) => {
     await signOut(auth);
     console.log("Usuário deslogado com sucesso");
     toast.success("Usuário deslogado com sucesso!");
-    if (onSuccess) onSuccess(); // Chame a função de redirecionamento se fornecida
+    if (onSuccess) onSuccess();
   } catch (error) {
     console.log("Erro ao deslogar o usuário:", error);
     toast.error("Erro ao deslogar o usuário: " + error.message);
