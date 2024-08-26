@@ -143,6 +143,8 @@ const Header = () => {
   useEffect(() => {
     if (searchTerm) {
       navigate(`/search/${searchTerm}`);
+    } else {
+      navigate('/'); 
     }
   }, [searchTerm, navigate]);
 
