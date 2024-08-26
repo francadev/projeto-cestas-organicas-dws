@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import logo from '../../images/logo.png';
@@ -140,11 +139,15 @@ const Header = () => {
     setSearchTerm(event.target.value);
   };
 
+  const handleSearchBlur = () => {
+    if (!searchTerm) {
+      navigate('/'); 
+    }
+  };
+
   useEffect(() => {
     if (searchTerm) {
       navigate(`/search/${searchTerm}`);
-    } else {
-      navigate('/'); 
     }
   }, [searchTerm, navigate]);
 
@@ -161,6 +164,7 @@ const Header = () => {
           className="search-bar"
           value={searchTerm}
           onChange={handleSearch}
+          onBlur={handleSearchBlur}
           />
         </BuscaContainer>
         <LinksContainer>
