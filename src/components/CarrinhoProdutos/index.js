@@ -216,7 +216,9 @@ const CarrinhoProdutos = () => {
         </tbody>
       </Tabela>
       <PrecoTotal>Total: {formatCurrency(totalPrice)}</PrecoTotal>
-      <BotaoConcluir onClick={handleCheckout}>Concluir Compra</BotaoConcluir>
+      {cartItems.length > 0 && (
+        <BotaoConcluir onClick={handleCheckout}>Concluir Compra</BotaoConcluir>
+      )}
     </CarrinhoContainer>
   );
 };
